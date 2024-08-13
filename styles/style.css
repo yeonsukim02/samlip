@@ -1,0 +1,128 @@
+/* 전체너비 1440px */
+header {
+    max-width: 1440px;/* 기본크기는 %가변형으로 들어가지만 최대로 커진는 게 1440px 까지다 */ 
+    height: 100px;
+    margin: 0 auto;
+    /* 모바일용 여백은 15px */ 
+    /* auto: 1440px 값을 뺀 나머지 여백 자동으로 처리하겠다 */
+    /* 높이보단 여백값으로 주는 게 좋음, 반응형에서 필요, 단 예외 헤더의 높이는 필요 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header h1 {}
+header h1 a {}
+header h1 a img {}
+header nav {}
+header nav > ul {display: flex;}/*  블락요소의 기본은 수직, 따라서 방향 바꿔주기 */
+header nav > ul > li {margin-right: 20px; position: relative;}/* 형제들을 띄워야 하니까 a 아니고 li에 */
+header nav > ul > li:last-child {margin: 0;}
+header nav > ul > li > a {
+    font-size: 1.2rem; /* rem 부모값과 상관없이, body의(가장최상단의) 글자 크기로 적용/ em 부모값과 상대적으로 */
+    text-transform: uppercase;
+} /*  글자 꾸밀 때 */
+header nav > ul > li > .sub {
+    position: absolute;
+    display: flex;
+    /* width: max-content;  */
+    /* 
+    부모를 따라서 너비값을 자동으로 물려받으니까 width max-content 주기: 부모에 맞추지 말고 내용에 맞춰라, 
+    부모태그에 주기 
+    white-space: nowrap or width: max-content 선택하기*/
+}/* sub에는 항상 position absolute */
+header nav > ul > li > .sub li {}
+header nav > ul > li > .sub li a {white-space: nowrap;}/* 줄바꿈하지마라 */
+header .right {}
+header .right a {}
+/* main */
+/* 빈공백 만들지 않기, 빠짐없이 부모태그 쓰기, 중복있을 때 > */
+main {}
+main .path_bg {
+    background-color: #f1f1f1;
+    border: 1px solid #aaa;
+    border-right: 0; border-left: 0;
+}
+main .path_bg .path {
+    max-width: 1440px;
+    margin: 0 auto;
+    text-align: right;
+    padding: 12px 0;
+}
+main .path_bg .path a {}
+main .path_bg .path span {}
+main .container {text-align: center;}/* 컨테이너 안 모든 텍스트 가운데 정렬 */
+main .container h1 {
+    font-size: 3.13rem; font-weight: 700;
+    margin: 74px 0 34px; /* 상 좌우 하 */
+/* 
+    margin: 바깥쪽 여백 h1과 p의 바깥쪽;
+    padding: 안쪽 여백 h1의 안쪽을 늘려서 p와 경계를 떨어뜨림;
+ */
+}
+main .container > p {
+    font-weight: 300; letter-spacing: -2%;
+    margin-bottom: 45px;
+}
+/* letter spacing 자간 */
+/* line-height 행간 */
+main .container h1+p {
+
+}
+/* 이전형제'의'+다음형제 인접형제선택자 */
+main .container .bg {
+    background-color: #f1f1f1;
+    padding-top: 46px;/* 부모와 자식중 부모가 먼저라서 패딩으로 주는 게 낫다 */
+}
+main .container .bg > * {max-width: 1440px; margin: 0 auto;}
+main .container .bg p{
+    line-height: 1.8;
+    letter-spacing: -2%;
+}
+main .container .bg p:nth-child(2) {
+    margin-top: 45px;
+    margin-bottom: 48px;
+}
+main .container .bg h2 {
+    margin: 93px auto 44px;
+    /* 오토값 다시 넣어주기 */
+    /* margin-top: 93px; */
+    /* margin-bottom: 44px; */
+    color: #36B4E5;
+    letter-spacing: -2%;
+    font-size: 1.88rem;
+    /* font-size: 30px; */
+}
+main .container .bg h2+p {
+    line-height: 1.3;/* 130% */
+    font-size: 2.19rem;
+}
+/* main goal 시작 영역 */
+main .container .bg  ul {
+    display: flex;
+    justify-content: center;
+/* 
+    메인축 정렬 justify-content: ;
+    교차축 정렬 align-items: ;
+ */
+}
+main .container .bg ul li {
+    width: 250px; line-height: 250px;/* 1줄 일 때, 높이값을 주면 수직중앙 */
+    border-radius: 50%;
+    margin-left: -10px; /* 겹치고 싶은 만큼 음수값 */
+    box-shadow: 0 0 6px rgba(0, 0, 0, 25);/* x y blur rgba */
+}
+main .container .bg ul li:nth-child(1) {background-color: #36B4E5;}
+main .container .bg ul li:nth-child(2) {background-color: #fff;}
+main .container .bg ul li:nth-child(3) {background-color: #F3C300;}
+main .container .bg ul li span {
+    font-size: 1.56rem; color: #fff; letter-spacing: -2%;
+}
+main .container .bg ul li:nth-child(2) span {color: #000;}/* span이 아니라 li의 형제에 수열선택자 */
+
+/* 
+a 인라인태그 수평
+li 블락태그 수직
+얼라인컨텐츠 : 아이템 2줄
+얼라인아이템 : 아이템 1줄
+ctrl h 네임찾기 > 바꾸기
+ */
